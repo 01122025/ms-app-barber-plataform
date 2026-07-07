@@ -1,11 +1,7 @@
 package br.com.api.salaohub.adapter.out.entity;
 
-import br.com.api.salaohub.shared.dto.AddressDTO;
 import br.com.api.salaohub.shared.enums.Accessibility;
 import jakarta.persistence.*;
-import jakarta.validation.constraints.Email;
-import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -28,7 +24,7 @@ public class ClientEntity {
     private String telefone;
 
     @Embedded
-    private AddressDTO addressDTO;
+    private AddressEntity addressDTO;
 
     @Enumerated(EnumType.STRING)
     private Accessibility accessibility;

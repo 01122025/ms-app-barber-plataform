@@ -1,6 +1,8 @@
 package br.com.api.salaohub.adapter.out.mapper;
 
+import br.com.api.salaohub.adapter.out.entity.AddressEntity;
 import br.com.api.salaohub.adapter.out.entity.ClientEntity;
+import br.com.api.salaohub.shared.dto.AddressDTO;
 import br.com.api.salaohub.shared.dto.ClientDTO;
 import org.springframework.stereotype.Component;
 
@@ -17,7 +19,7 @@ public class ClientMapper {
             clientDTO.name(),
             clientDTO.email(),
             clientDTO.telefone(),
-            clientDTO.addressDTO(),
+            new AddressEntity(),
             clientDTO.accessibility()
         );
     }
@@ -32,7 +34,15 @@ public class ClientMapper {
             clientEntity.getName(),
             clientEntity.getEmail(),
             clientEntity.getTelefone(),
-            clientEntity.getAddressDTO(),
+            new AddressDTO(
+                clientEntity.getAddressDTO().getLogradouro(),
+                clientEntity.getAddressDTO().getBairro(),
+                clientEntity.getAddressDTO().getCep(),
+                clientEntity.getAddressDTO().getCidade(),
+                clientEntity.getAddressDTO().getUf(),
+                clientEntity.getAddressDTO().getNumero(),
+                clientEntity.getAddressDTO().getComplemento()
+            ),
             clientEntity.getAccessibility()
         );
     }
