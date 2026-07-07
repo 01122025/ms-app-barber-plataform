@@ -1,0 +1,27 @@
+package br.com.api.salaohub.adapter.out;
+
+import br.com.api.salaohub.adapter.out.entity.ClientEntity;
+import br.com.api.salaohub.adapter.out.jpaRepository.RegisterClientJpaRepository;
+import br.com.api.salaohub.adapter.out.mapper.ClientMapper;
+import br.com.api.salaohub.application.service.RegisterClientGateway;
+import br.com.api.salaohub.shared.dto.ClientDTO;
+import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.stereotype.Component;
+
+@Slf4j
+@RequiredArgsConstructor
+@Component
+public class RegisterCustomerUseCase implements RegisterClientGateway {
+    private final ClientMapper clientMapper;
+    private final RegisterClientJpaRepository registerClientJpaRepository;
+
+    @Override
+    public ClientDTO registerClient(ClientDTO clientDTO) {
+        log.info("Register client from database ID: {}, name:{}", clientDTO.idClient(), clientDTO.name());
+        ClientEntity clientEntity = clientMapper.DTOtoEntity(clientDTO);
+        log.info("Register client {}", clientEntity);
+        registerClientJpaRepository.save(clientEntity);
+        return clientMapper.entityToDTO(clientEntity);
+    }
+}
