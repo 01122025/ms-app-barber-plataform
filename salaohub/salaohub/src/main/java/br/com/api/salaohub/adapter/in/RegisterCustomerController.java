@@ -1,7 +1,9 @@
 package br.com.api.salaohub.adapter.in;
 
 import br.com.api.salaohub.application.RegisterCustomer;
+import br.com.api.salaohub.application.UpdateCustomer;
 import br.com.api.salaohub.shared.dto.ClientDTO;
+import jakarta.transaction.Transactional;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -15,6 +17,7 @@ import org.springframework.web.bind.annotation.*;
 public class RegisterCustomerController {
 
     private final RegisterCustomer registerCustomer;
+    private final UpdateCustomer updateCustomer;
 
     @PostMapping("/registerCustomer")
     public ResponseEntity<ClientDTO> registerCustomer(
@@ -26,9 +29,11 @@ public class RegisterCustomerController {
         return ResponseEntity.ok(result);
     }
 
-    @PutMapping
-    public void updateClient(ClientDTO clientDTO) {
-
+    @PutMapping("/updateClient")
+    public void updateClient(@RequestBody @Valid ClientDTO clientDTO) {
+        log.info("updating client in the database...");
+        var update = updateCustomer.updateClient(clientDTO);
+        log.info("client updated successfully Client Name: {}, Client Number: {}",update.name(),update.telefone());
     }
 
     @DeleteMapping

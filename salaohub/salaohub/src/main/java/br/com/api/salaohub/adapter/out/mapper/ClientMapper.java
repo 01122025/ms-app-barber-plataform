@@ -19,7 +19,14 @@ public class ClientMapper {
             clientDTO.name(),
             clientDTO.email(),
             clientDTO.telefone(),
-            new AddressEntity(),
+            new AddressEntity(clientDTO.addressDTO().logradouro(),
+                    clientDTO.addressDTO().bairro(),
+                    clientDTO.addressDTO().cep(),
+                    clientDTO.addressDTO().cidade(),
+                    clientDTO.addressDTO().uf(),
+                    clientDTO.addressDTO().numero(),
+                    clientDTO.addressDTO().complemento()
+            ),
             clientDTO.accessibility()
         );
     }

@@ -24,4 +24,15 @@ public class RegisterCustomerUseCase implements RegisterClientGateway {
         registerClientJpaRepository.save(clientEntity);
         return clientMapper.entityToDTO(clientEntity);
     }
+
+    @Override
+    public ClientDTO updateClient(ClientDTO clientDTO) {
+        log.info("Update client from database ID: {}", clientDTO.idClient());
+        var searchId = registerClientJpaRepository.getReferenceById(clientDTO.idClient());
+        var mapper = clientMapper.entityToDTO(searchId);
+        log.info("Update client {}", searchId);
+        var mapperReturn = clientMapper.DTOtoEntity(clientDTO);
+        registerClientJpaRepository.save(mapperReturn);
+        return mapper;
+    }
 }
