@@ -1,5 +1,7 @@
 package br.com.api.salaohub.boot.config;
 
+import br.com.api.salaohub.application.DeleteCustomer;
+import br.com.api.salaohub.application.UpdateCustomer;
 import br.com.api.salaohub.application.service.RegisterClientGateway;
 import br.com.api.salaohub.application.RegisterCustomer;
 import org.springframework.context.annotation.Bean;
@@ -13,4 +15,13 @@ public class RegisterCustomerConfig {
         return new RegisterCustomer(registerClientGateway);
     }
 
+    @Bean
+    public UpdateCustomer updateCustomer(RegisterClientGateway registerClientGateway) {
+        return new UpdateCustomer(registerClientGateway);
+    }
+
+    @Bean
+    public DeleteCustomer deleteCustomer(RegisterClientGateway registerClientGateway) {
+        return new DeleteCustomer(registerClientGateway);
+    }
 }
