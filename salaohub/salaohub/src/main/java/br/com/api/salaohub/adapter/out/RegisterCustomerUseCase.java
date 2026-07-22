@@ -35,4 +35,14 @@ public class RegisterCustomerUseCase implements RegisterClientGateway {
         registerClientJpaRepository.save(mapperReturn);
         return mapper;
     }
+
+    @Override
+    public ClientDTO deleteClient(ClientDTO clientDTO) {
+        log.info("Delete client from database ID: {}", clientDTO.idClient());
+        var deleteClient = registerClientJpaRepository.getReferenceById(clientDTO.idClient());
+        var mapper = clientMapper.entityToDTO(deleteClient);
+        registerClientJpaRepository.delete(deleteClient);
+        log.info("Delete client {}", deleteClient.getIdClient());
+        return mapper;
+    }
 }

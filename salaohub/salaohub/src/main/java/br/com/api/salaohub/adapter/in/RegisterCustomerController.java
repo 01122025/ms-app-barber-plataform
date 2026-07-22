@@ -1,7 +1,9 @@
 package br.com.api.salaohub.adapter.in;
 
+import br.com.api.salaohub.application.DeleteCustomer;
 import br.com.api.salaohub.application.RegisterCustomer;
 import br.com.api.salaohub.application.UpdateCustomer;
+import br.com.api.salaohub.application.service.RegisterClientGateway;
 import br.com.api.salaohub.shared.dto.ClientDTO;
 import jakarta.transaction.Transactional;
 import jakarta.validation.Valid;
@@ -18,6 +20,7 @@ public class RegisterCustomerController {
 
     private final RegisterCustomer registerCustomer;
     private final UpdateCustomer updateCustomer;
+    private final DeleteCustomer deleteCustomer;
 
     @PostMapping("/registerCustomer")
     public ResponseEntity<ClientDTO> registerCustomer(
@@ -36,8 +39,12 @@ public class RegisterCustomerController {
         log.info("client updated successfully Client Name: {}, Client Number: {}",update.name(),update.telefone());
     }
 
-    @DeleteMapping
-    public void deleteClient(ClientDTO clientDTO) {
+    @DeleteMapping("/deleteClient")
+    public ResponseEntity<ClientDTO> deleteClient(@RequestBody @Valid ClientDTO clientDTO) {
+        log.info("deleting client in the database...");
+        var delete = deleteCustomer.deleteClient(clientDTO);
+        log.info("client deleted successfully Client Name: {}, Client Number: {}",delete.name(),delete.telefone());
+        return ResponseEntity.ok(delete);
     }
 
 }
