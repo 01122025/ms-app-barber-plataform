@@ -1,4 +1,14 @@
 package br.com.api.cadastro_barbeiro.boot.config;
 
+import br.com.api.cadastro_barbeiro.application.RegisterProfessional;
+import br.com.api.cadastro_barbeiro.application.service.RegisterProfessionalService;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+
+@Configuration
 public class RegisterProfessionalConfig {
+    @Bean
+    public RegisterProfessional  registerProfessional(RegisterProfessionalService registerProfessional) {
+        return new RegisterProfessional(registerProfessional);
+    }
 }
