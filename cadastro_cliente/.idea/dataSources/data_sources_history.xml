@@ -9,7 +9,7 @@
       <driver-ref>mysql.8</driver-ref>
       <synchronize>true</synchronize>
       <imported>true</imported>
-      <remarks>C:/Users/pedro/OneDrive/Documentos/Projetos Pessoais/cadastro_cliente_hub/ms-app-barber-plataform/salaohub/salaohub/src/main/resources/application.yaml</remarks>
+      <remarks>C:/Users/pedro/OneDrive/Documentos/Projetos Pessoais/ms-app-barber-plataform/cadastro_cliente/salaohub/src/main/resources/application.yaml</remarks>
       <jdbc-driver>com.mysql.cj.jdbc.Driver</jdbc-driver>
       <jdbc-url>jdbc:mysql://localhost/registerclient</jdbc-url>
       <jdbc-additional-properties>
