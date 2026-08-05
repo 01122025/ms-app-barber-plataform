@@ -25,4 +25,23 @@ public class RegisterProfessionalUseCase implements RegisterProfessionalService 
         log.info("Register a professional in the database - response : {}", result);
         return mapperRegisterProfessional.toProfessionalDTO(result);
     }
+
+    @Override
+    public ProfessionalDTO updateProfessional(ProfessionalDTO professionalDTO) {
+        log.info("update in the database - request received : {}", professionalDTO);
+        var persistence = mapperRegisterProfessional.toRegisterProfessionalEntity(professionalDTO);
+       log.info("update in the database - response : {}", persistence);
+        var result= jparegisterProfessional.save(persistence);
+        return mapperRegisterProfessional.toProfessionalDTO(result) ;
+    }
+
+    @Override
+    public ProfessionalDTO deleteProfessional(ProfessionalDTO professionalDTO) {
+        log.info("delete in the database - request received : {}", professionalDTO);
+        var deleteDataBase= jparegisterProfessional.getReferenceById(professionalDTO.id());
+        var result = mapperRegisterProfessional.toProfessionalDTO(deleteDataBase);
+        log.info("delete in the database - response : {}", result);
+        jparegisterProfessional.delete(deleteDataBase);
+        return result;
+    }
 }
