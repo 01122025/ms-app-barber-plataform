@@ -1,0 +1,7 @@
+spring:
+  application:
+    name: salaohub
+  datasource:
+    url: jdbc:mysql://localhost/registerclient
+    username: root
+    password: admin15

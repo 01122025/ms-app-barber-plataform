@@ -1,0 +1,10 @@
+spring:
+  application:
+    name: cadastro_barbeiro
+  datasource:
+      url: jdbc:mysql://localhost/register_professional
+      username: root
+      password: admin15
+  jpa:
+    hibernate:
+      ddl-auto: update
