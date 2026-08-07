@@ -1,4 +1,4 @@
-package br.com.api.cadastro_barbeiro.adapter.out.mapper;
+package br.com.agendamento_Api.adapter.out.mapper;
 
 import br.com.api.cadastro_barbeiro.adapter.out.entity.RegisterProfessionalEntity;
 import br.com.api.cadastro_barbeiro.shared.dto.ProfessionalDTO;

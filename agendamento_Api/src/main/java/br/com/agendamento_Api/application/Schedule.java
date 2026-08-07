@@ -1,4 +1,4 @@
-package br.com.agendamento_Api.application.service;
+package br.com.agendamento_Api.application;
 
 public class Schedule {
 }
