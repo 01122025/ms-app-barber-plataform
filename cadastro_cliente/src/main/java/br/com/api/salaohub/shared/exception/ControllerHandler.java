@@ -1,6 +1,7 @@
-package br.com.api.cadastro_barbeiro.shared.exception;
+package br.com.api.salaohub.shared.exception;
 
-import br.com.api.cadastro_barbeiro.shared.dto.ErrorDTO;
+
+import br.com.api.salaohub.shared.dto.ErrorDTO;
 import jakarta.persistence.EntityNotFoundException;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;

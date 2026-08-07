@@ -1,4 +1,4 @@
-package br.com.api.cadastro_barbeiro.shared.dto;
+package br.com.api.salaohub.shared.dto;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
