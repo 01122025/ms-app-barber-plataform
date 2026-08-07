@@ -4,9 +4,9 @@ package br.com.api.cadastro_barbeiro.shared.dto;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 public record ProfessionalDTO(
-      @JsonProperty Long id,
-      @JsonProperty  String nome,
-      @JsonProperty  String email,
-      @JsonProperty  String telefone,
-      @JsonProperty  String ownerOrCollaborator) {
+      @JsonProperty("id") Long id,
+      @JsonProperty("nome") String nome,
+      @JsonProperty("email") String email,
+      @JsonProperty("telefone") String telefone,
+      @JsonProperty("ownerOrCollaborator") String ownerOrCollaborator) {
 }
