@@ -1,10 +1,10 @@
 spring:
   application:
-    name: cadastro_barbeiro
+    name: salaohub
   datasource:
-      url: jdbc:mysql://localhost/register_professional
-      username: root
-      password: admin15
+    url: ${DB_URL}
+    username: ${DB_USERNAME}
+    password: ${DB_PASSWORD}
   jpa:
     hibernate:
       ddl-auto: update
