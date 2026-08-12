@@ -21,7 +21,7 @@ public class RegisterProfessionalController {
     private final DeleteProfessional deleteProfessional;
 
 
-    @PostMapping("/registerProfessional")
+    @PostMapping("/registeringProfessional")
     public ResponseEntity<ProfessionalDTO> registerProfessional(
             @RequestHeader("Authorization") String authorization,
             @RequestBody @Valid ProfessionalDTO professionalDTO) {
@@ -39,10 +39,10 @@ public class RegisterProfessionalController {
     }
 
     @DeleteMapping("/deleteClient")
-    public ResponseEntity<ProfessionalDTO> deleteClient(@RequestBody @Valid ProfessionalDTO professionalDTO) {
+    public ResponseEntity<Long> deleteClient(@RequestBody @Valid ProfessionalDTO professionalDTO) {
         log.info("deleting client in the database...");
         var delete = deleteProfessional.deleteProfessional(professionalDTO);
-        log.info("client deleted successfully Client Name: {}, Client Number: {}",delete.nome(),delete.telefone());
-        return ResponseEntity.ok(delete);
+        log.info("client deleted successfully Client ID: {}, Client Name: {}",delete.id(),delete.nome());
+        return ResponseEntity.ok(delete.id());
     }
 }

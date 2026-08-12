@@ -11,7 +11,7 @@ public class DeleteProfessional {
     private final RegisterProfessionalService registerProfessionalService;
 
     public ProfessionalDTO deleteProfessional(ProfessionalDTO professionalDTO) {
-        log.info("Deletando dados do profissional no banco de dados - request recebido : {}", professionalDTO.nome());
+        log.info("Deleting professional's data from the database - request received: {}", professionalDTO.nome());
         return registerProfessionalService.deleteProfessional(professionalDTO);
     }
 

@@ -19,10 +19,12 @@ public class RegisterProfessionalUseCase implements RegisterProfessionalService 
 
     @Override
     public ProfessionalDTO registerProfessional(ProfessionalDTO professionalDTO) {
-        log.info("Registering a professional in the database - request received : {}", professionalDTO);
+        if (jparegisterProfessional.existsByNome(professionalDTO.nome())) {
+            throw new IllegalArgumentException("Já existe um profissional com esse nome");
+        }
         var persistence = mapperRegisterProfessional.toRegisterProfessionalEntity(professionalDTO);
+        persistence.setId(null); // garante que é sempre INSERT, nunca UPDATE
         var result = jparegisterProfessional.save(persistence);
-        log.info("Register a professional in the database - response : {}", result);
         return mapperRegisterProfessional.toProfessionalDTO(result);
     }
 

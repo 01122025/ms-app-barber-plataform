@@ -2,7 +2,7 @@ package br.com.api.salaohub.application.service;
 
 import br.com.api.salaohub.shared.dto.ClientDTO;
 
-public interface RegisterClientGateway {
+public interface RegisterClientService {
 
     ClientDTO registerClient(ClientDTO clientDTO);
     ClientDTO updateClient(ClientDTO clientDTO);

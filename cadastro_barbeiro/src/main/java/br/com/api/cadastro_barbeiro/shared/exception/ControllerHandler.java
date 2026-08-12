@@ -61,6 +61,13 @@ public class ControllerHandler {
         return createErrorResponse("Erro interno da aplicação", ex.getMessage(), "Database error occurred", HttpStatus.INTERNAL_SERVER_ERROR.value());
     }
 
+    @ExceptionHandler(RuntimeException.class)
+    @ResponseStatus(value = HttpStatus.BAD_REQUEST)
+    public ResponseEntity<ErrorDTO> handleRuntimeException(RuntimeException ex) {
+        log.error("Erro inesperado: {}", ex.getMessage());
+        return createErrorResponse("BAD_REQUEST", ex.getMessage(), "Invalid argument provided", HttpStatus.BAD_REQUEST.value());
+    }
+
     private ResponseEntity<ErrorDTO> createErrorResponse(String code, String message, String reason, int statusCode) {;
         ErrorDTO errorDTO = new ErrorDTO(code, message, reason, statusCode);
         return ResponseEntity.status(statusCode).body(errorDTO);

@@ -4,4 +4,6 @@ import br.com.api.cadastro_barbeiro.adapter.out.entity.RegisterProfessionalEntit
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface RegisterProfessionalRepository extends JpaRepository<RegisterProfessionalEntity, Long> {
+    boolean existsById(Long id);
+    boolean existsByNome(String nome);
 }
