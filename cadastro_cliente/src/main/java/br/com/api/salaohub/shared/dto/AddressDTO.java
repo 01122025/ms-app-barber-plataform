@@ -4,12 +4,14 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 
 public record AddressDTO(
-        @JsonProperty String logradouro,
-        @JsonProperty String bairro,
-        @JsonProperty String cep,
-        @JsonProperty String cidade,
-        @JsonProperty String uf,
-        @JsonProperty String numero,
-        @JsonProperty String complemento
+
+        @JsonProperty("id") String id,
+        @JsonProperty("street") String street,
+        @JsonProperty("neighborhood") String neighborhood,
+        @JsonProperty("zipCode") String zipCode,
+        @JsonProperty("city") String city,
+        @JsonProperty("state") String state,
+        @JsonProperty("number") String number,
+        @JsonProperty("complement") String complemento
 ) {
 }

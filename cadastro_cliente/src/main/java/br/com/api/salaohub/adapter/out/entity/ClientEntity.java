@@ -5,26 +5,29 @@ import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.RequiredArgsConstructor;
 
-@Table(name = "registerClient")
-@Entity(name = "registerClient")
+@Table(name = "register_client")
+@Entity(name = "register_client")
 @Data
-@NoArgsConstructor
-@AllArgsConstructor
+@RequiredArgsConstructor
 public class ClientEntity {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long idClient;
     @Column(nullable = false)
     private String name;
     @Column(nullable = false, unique = true)
     private String email;
-    @Column(nullable = false)
-    private String telefone;
+    @Column(name = "phone", nullable = false)
+    private String phone;
+    @Column(nullable = false, unique = true)
+    private String role;
 
-    @Embedded
-    private AddressEntity addressDTO;
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "id_address", referencedColumnName = "id")
+    private AddressEntity address;
 
     @Enumerated(EnumType.STRING)
     private Accessibility accessibility;

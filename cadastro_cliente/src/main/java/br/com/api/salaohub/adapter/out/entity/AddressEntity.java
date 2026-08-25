@@ -1,21 +1,31 @@
 package br.com.api.salaohub.adapter.out.entity;
 
-import jakarta.persistence.Embeddable;
-import lombok.AllArgsConstructor;
+import jakarta.persistence.*;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@Embeddable
+@Entity
+@Table(name = "address")
 @Data
-@AllArgsConstructor
 @NoArgsConstructor
 public class AddressEntity {
 
-    private String logradouro;
-    private String bairro;
-    private String cep;
-    private String cidade;
-    private String uf;
-    private String numero;
-    private String complemento;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    @Column(name = "street")
+    private String street;
+    @Column(name = "neighborhood")
+    private String neighborhood;
+    @Column(name = "zip_code")
+    private String zipCode;
+    @Column(name = "city")
+    private String city;
+    @Column(name = "state")
+    private String state;
+    @Column(name = "number")
+    private String number;
+    @Column(name = "complement")
+    private String complement;
 }

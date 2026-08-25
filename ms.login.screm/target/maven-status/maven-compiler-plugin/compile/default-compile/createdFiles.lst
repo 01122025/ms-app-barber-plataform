@@ -1,0 +1,14 @@
+br\com\ms\login\screm\adapter\security\ProcessAuthentication.class
+br\com\ms\login\screm\adapter\in\LoginController.class
+br\com\ms\login\screm\adapter\out\repository\UsuarioRepository.class
+br\com\ms\login\screm\adapter\out\entity\LoginEntity.class
+br\com\ms\login\screm\adapter\security\TokenService.class
+br\com\ms\login\screm\adapter\security\SecurityFilter.class
+br\com\ms\login\screm\boot\config\AuthenticationConfig.class
+br\com\ms\login\screm\boot\Application.class
+br\com\ms\login\screm\application\LoginAuthentication.class
+br\com\ms\login\screm\application\service\LoginServiceAuth.class
+br\com\ms\login\screm\adapter\security\AuthenticationService.class
+br\com\ms\login\screm\shared\dto\LoginDTO.class
+br\com\ms\login\screm\adapter\out\LoginAcessAuthentication.class
+br\com\ms\login\screm\boot\config\LoginAuthConfig.class

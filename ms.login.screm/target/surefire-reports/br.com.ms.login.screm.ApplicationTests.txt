@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: br.com.ms.login.screm.ApplicationTests
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.057 s -- in br.com.ms.login.screm.ApplicationTests
